@@ -29,10 +29,16 @@ func GetNew2(w http.ResponseWriter, _ *http.Request) {
 	json.NewEncoder(w).Encode(b)
 }
 
+func GetNew3(w http.ResponseWriter, _ *http.Request) {
+	b := Response{Status: "YesIAmNew3"}
+	json.NewEncoder(w).Encode(b)
+}
+
 func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/status", GetStatus).Methods("GET")
 	router.HandleFunc("/new", GetNew).Methods("GET")
 	router.HandleFunc("/new2", GetNew2).Methods("GET")
+	router.HandleFunc("/new3", GetNew3).Methods("GET")
 	log.Fatal(http.ListenAndServe(":8123", router))
 }
