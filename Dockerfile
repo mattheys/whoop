@@ -3,7 +3,7 @@
 # Stage 1 (to create a "build" image, ~850MB)
 FROM golang:1.10.1 AS builder
 RUN go version
-RUN git clone https://github.com/mattheys/whoop /go/src/github.com/mattheys/whoop/
+RUN git clone -b develop https://github.com/mattheys/whoop /go/src/github.com/mattheys/whoop/
 #COPY . /go/src/github.com/mattheys/whoop/
 WORKDIR /go/src/github.com/mattheys/whoop/
 RUN set -x && \
